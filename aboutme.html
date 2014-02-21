@@ -1,0 +1,74 @@
+<!-- EXERCISE: About Me
+
+Cuz every webpage needs an "About" section.
+
+Start with this HTML and save it as "aboutme.html":
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>About Me</title>
+</head>
+<body>
+  <h1>About Me</h1>
+
+  <ul>
+    <li>Nickname: <span id="nickname"></span>
+    <li>Favorites:  <span id="favorites"></span>
+    <li>Hometown: <span id="hometown"></span>
+   </ul>
+
+ </body>
+</html>
+
+Add a script tag to the bottom.
+Change the body style so it has a font-family of "Arial, sans-serif".
+Replace each of the spans (nickname, favorites, hometown) with your own information.
+Iterate through each li and change the class to "listitem". Add a style tag that sets a rule for "listitem" to make the color red.
+Create a new img element and set its src attribute to a picture of you. Append that element to the page. -->
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>About Me</title>
+</head>
+<body>
+  <h1>About Me</h1>
+
+  <ul>
+    <li>Nickname: <span id="nickname"></span>
+    <li>Favorites:  <span id="favorites"></span>
+    <li>Hometown: <span id="hometown"></span>
+    </ul>
+	
+	<script>
+    var bodyStyle = document.getElementsByTagName('body')[0];
+    bodyStyle.style.fontFamily = "Arial, sans-serif";
+
+    var spanNickname = document.getElementById('nickname');
+    spanNickname.innerText = 'Yuri';
+
+    var spanFavorites = document.getElementById('favorites');
+    spanFavorites.innerText = 'Pizza, beer, TV, sleep.';
+
+    var spanHometown = document.getElementById('hometown');
+    spanHometown.innerText = 'Toronto, Ontario';
+
+    var listItems = bodyStyle.getElementsByTagName('li');
+    for (var i = 0; i < listItems.length; i++) {
+      listItems[i].className = "listitem";
+    }
+
+    var style = document.createElement('style');
+    style.innerHTML = '.listitem {color:red;}';
+    document.head.appendChild(style);
+
+    var img = document.createElement('img');
+    img.src = 'http://www.gravatar.com/avatar/41ad3f4d3cfd065b0dee19be75422f54.png';
+    document.body.appendChild(img);
+
+	</script>
+ </body>
+</html>

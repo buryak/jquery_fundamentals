@@ -1,0 +1,64 @@
+<!-- EXERCISE: The Book List
+
+Keep track of which books you read and which books you want to read!
+
+Create a webpage with an h1 of "My Book List".
+Add a script tag to the bottom of the page, where all your JS will go.
+Copy the array of books from the previous exercise.
+Iterate through the array of books. For each book, create a p element with the book title and author and append it to the page.
+Bonus: Use a ul and li to display the books.
+Bonus: add a property to each book with the URL of the book cover, and add an img element for each book on the page.
+Bonus: Change the style of the book depending on whether you have read it or not. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Books</title>
+	<h1>My Book List</h1>
+</head>
+<body>
+	<script>
+	var readingList = [
+	{title: "Ulysses",
+	author: "James Joyce",
+	alreadyRead: false,
+	img: 'http://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/UlyssesCover.jpg/200px-UlyssesCover.jpg'},
+
+	{title: "The Great Gatsby",
+	author: "F. Scott Fitzgerald",
+	alreadyRead: true,
+	img: 'http://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Gatsby_1925_jacket.gif/160px-Gatsby_1925_jacket.gif'},
+
+	{title: "Brave New World",
+	author: "Aldous Huxley",
+	alreadyRead: true,
+	img: 'http://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg'}
+	];
+
+	var ul = document.createElement('ul');
+	var body = document.body;
+
+	for (var i = 0; i < readingList.length; i++) {
+		var li = document.createElement('li');
+		li.innerHTML = readingList[i].title + " by " + readingList[i].author;
+		ul.appendChild(li);
+	};
+
+	body.appendChild(ul);
+
+	</script>
+
+</body>
+</html>
+
+
+
+
+<!-- for (var i = 0; i < readingList.length; i++) {
+	if (readingList[i].alreadyRead == true) {
+		var readingStatus = 'You already read "';
+	}else{ 
+		var readingStatus = 'You still need to read "';
+}
+	console.log(readingStatus + readingList[i].title + '" by ' +readingList[i].author)
+}; -->
